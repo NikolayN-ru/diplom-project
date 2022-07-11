@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: back-api
+    command: python /app/manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    # environment:
+    #   - PORT=8000
+    depends_on:
+      - db
+    networks:
+      - lb-docker-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-nextjs
+    # command: npm run build && npm run start
+    command: npm run dev
+    restart: unless-stopped
+    volumes:
+      - ./frontend/pages:/app/pages
+      - ./frontend/src:/app/src
+      - ./frontend/styles:/app/styles
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - PATH_CATEGORY=http://backend:8000/api/category
+    networks:
+      - lb-docker-network
+  
+  db:
+    hostname: db
+    image: postgres:11
+    container_name: postgres-db
+    restart: unless-stopped
+    volumes:
+      # - /Users/nn/Desktop/try/1/datadb1:/var/lib/postgresql/data
+      - ./datadb1:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    networks:
+      - lb-docker-network
+
+networks:
+  lb-docker-network:
+    driver: bridge
+
+# volumes:
+  # datadb1:
