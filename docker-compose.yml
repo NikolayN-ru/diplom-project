@@ -43,6 +43,8 @@ services:
     volumes:
       # - /Users/nn/Desktop/try/1/datadb1:/var/lib/postgresql/data
       - ./datadb1:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
