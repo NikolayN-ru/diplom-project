@@ -8,7 +8,7 @@ from blogService.models import News
 
 def index(request):
     # print(request)
-    # return HttpResponse('hello')
+    # return HttpResponse('hw')
     news = News.objects.all()
     context = {
         'news': news,
