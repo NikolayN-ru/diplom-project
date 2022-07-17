@@ -1,19 +1,39 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'blogService/css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
 
 <p>
 <h1>{{ title }}</h1>
+<a href="{% url 'home' %}">home</a>
+<a href="{% url 'addNews' %}">add-news</a>
+<hr>
+{{category|length}}
+{% if oneCategory %}
+<p>
+    {{ oneCategory }}
+</p>
+{% endif %}
+{% for i in category %}
+<a href="{% url 'get_category' i.pk %}">{{ i.title }}</a>{{i.cnt}}__
+{% endfor %}
+<hr>
 {% for item in news %}
 <p>
- {{ item.title }}
+    {{ item.title }}
+    <a href="{{ item.get_absolute_url }}">{{ item.title }}++</a>
+    {% if item.photo %}
+    <img src="{{ item.image.url}}" alt="">
+    {% endif %}
+
 </p>
 </p>
 {% endfor %}

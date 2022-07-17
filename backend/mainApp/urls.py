@@ -18,12 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from blogService.views import index
+# from blogService.views import index
+# import debug_toolbar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blogService.urls')),
     # path('blog/', index),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 if settings.DEBUG:
