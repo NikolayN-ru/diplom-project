@@ -1,7 +1,7 @@
 running project:
 #
     - make dev
-    - bashStart.sh
+    - ./bashStart.sh
 #
 stop command:
 #

@@ -1,0 +1,14 @@
+{% if messages %}
+    {% for message in messages %}
+        <p style="color:red">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+<p>login-page</p>
+<a href="{% url 'home' %}">home</a>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">LOGIN!</button>
+</form>

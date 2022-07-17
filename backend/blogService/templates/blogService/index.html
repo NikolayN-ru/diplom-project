@@ -11,7 +11,15 @@
 </head>
 <body>
 
-<p>
+<hr>
+
+<hr>
+{% if request.user.is_authenticated %}
+    <p>dobro-pozhalovat - {{ user.username }} <a href="{% url 'logout' %}">exit</a></p>
+    {% else %}
+    <a href="{% url 'register' %}">register</a> | <a href="{% url 'login' %}">login</a>
+{% endif %}
+<hr>
 <h1>{{ title }}</h1>
 <a href="{% url 'home' %}">home</a>
 <a href="{% url 'addNews' %}">add-news</a>

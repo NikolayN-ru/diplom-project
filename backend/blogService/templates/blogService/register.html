@@ -1,0 +1,16 @@
+<p>
+    register-page
+</p>
+{% if messages %}
+    {% for message in messages %}
+        <p style="color:red">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+<a href="{% url 'home' %}">home</a>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="'submit">registracia</button>
+</form>
