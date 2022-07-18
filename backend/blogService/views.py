@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from rest_framework.viewsets import ModelViewSet
 
 from blogService.models import News, Category
 from .forms import NewsForm, UserRegisterForm, UserLoginForm
@@ -9,6 +10,9 @@ from django.db.models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import login, logout
+
+from .serializers import NewsSerializer
+from rest_framework import generics
 
 
 def index(request):
@@ -121,3 +125,12 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+# class NewsViewSet(ModelViewSet):
+#     queryset = News.objects.all()
+#     serializer_class = NewsSerializer
+
+class NewsViewSet(generics.ListAPIView):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer

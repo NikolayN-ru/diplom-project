@@ -20,12 +20,19 @@ from django.urls import path, include
 
 # from blogService.views import index
 # import debug_toolbar
+from rest_framework import routers
+
+from blogService.views import NewsViewSet
+
+# router = routers.DefaultRouter()
+# router.register(r'api', NewsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blogService.urls')),
     # path('blog/', index),
     path('__debug__/', include('debug_toolbar.urls')),
+    # path('api/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 if settings.DEBUG:
