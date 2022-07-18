@@ -2,9 +2,13 @@ version: "3.8"
 
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: back-api
-    command: python /app/manage.py runserver 0.0.0.0:8000
+    command: bash -c "python /app/manage.py migrate --noinput &&
+             python /app/manage.py runserver 0.0.0.0:8000"
+    # command: python /app/manage.py runserver 0.0.0.0:8000
     restart: unless-stopped
     volumes:
       - ./backend:/app
@@ -24,11 +28,12 @@ services:
     command: npm run dev
     restart: unless-stopped
     volumes:
-      - ./frontend/pages:/app/pages
-      - ./frontend/src:/app/src
-      - ./frontend/styles:/app/styles
+      - './frontend:/app'
+      # - ./frontend/pages:/app/pages
+      # - ./frontend/src:/app/src
+      # - ./frontend/styles:/app/styles
     ports:
-      - "3000:3000"
+      - "3000:3000" # хост\контейнер
     environment:
       - PORT=3000
       - PATH_CATEGORY=http://backend:8000/api/category
