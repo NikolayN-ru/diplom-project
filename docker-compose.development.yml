@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  api-nodejs:
+    command: npm run dev
+    volumes:
+      - ./back-nodejs/src:/app/src

@@ -1,6 +1,8 @@
 FROM python:3.7-slim
 
-WORKDIR /app
+ENV APP_DIR=/app
+
+WORKDIR $APP_DIR
 
 COPY ./requirements.txt .
 

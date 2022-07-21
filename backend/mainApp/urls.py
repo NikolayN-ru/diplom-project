@@ -29,6 +29,10 @@ from blogService.views import NewsViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # http://localhost:8000/api-auth/login/
+    path('api-auth/', include('rest_framework.urls')),
+
     path('blog/', include('blogService.urls')),
     # path('blog/', index),
     path('__debug__/', include('debug_toolbar.urls')),

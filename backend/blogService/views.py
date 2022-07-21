@@ -11,8 +11,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import login, logout
 
-from .serializers import NewsSerializer
-from rest_framework import generics
+from .serializers import NewsSerializer, NewSerializer, AddNewsSerializer, AddCategorySerializer
+from rest_framework import generics, permissions
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 def index(request):
@@ -134,3 +137,43 @@ def user_logout(request):
 class NewsViewSet(generics.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class NewsList(APIView):
+    """vivod-lis-news"""
+
+    def get(self, request):
+        # news = News.objects.filter(is_published=True)
+        news = News.objects.all()
+        serializer = NewsSerializer(news, many=True)
+        return Response(serializer.data)
+
+
+class NewList(APIView):
+    """ new-item"""
+
+    def get(self, request, pk):
+        news = News.objects.get(id=pk)
+        serializer = NewSerializer(news)
+        return Response(serializer.data)
+
+
+class AddNewsCreateView(APIView):
+    '''added-news-item'''
+
+    def post(self, request):
+        review = AddNewsSerializer(data=request.data)
+        if review.is_valid():
+            review.save()
+        return Response(status=201)
+
+
+class AddCategoryView(APIView):
+    '''added-categroy-item'''
+
+    def post(self, request):
+        category = AddCategorySerializer(data=request.data)
+        if category.is_valid():
+            category.save()
+        return Response(status=201)

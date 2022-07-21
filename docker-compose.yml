@@ -1,15 +1,14 @@
 version: "3.8"
 
 services:
+
   backend:
     build: 
       context: ./backend
       dockerfile: Dockerfile
-    container_name: back-api
-    command: gunicorn mainApp.wsgi:application --bind 0.0.0.0:8000
-    # command: bash -c "python /app/manage.py migrate --noinput &&
-            #  python /app/manage.py runserver 0.0.0.0:8000"
-    # command: python /app/manage.py runserver 0.0.0.0:8000
+    container_name: django-api
+    command: bash -c "python /app/manage.py migrate --noinput &&
+             python /app/manage.py runserver 0.0.0.0:8000"
     restart: unless-stopped
     volumes:
       - ./backend:/app
@@ -32,9 +31,6 @@ services:
     restart: unless-stopped
     volumes:
       - './frontend:/app'
-      # - ./frontend/pages:/app/pages
-      # - ./frontend/src:/app/src
-      # - ./frontend/styles:/app/styles
     ports:
       - "3000:3000" # хост\контейнер
     environment:
@@ -58,10 +54,66 @@ services:
       - POSTGRES_PASSWORD=password
     networks:
       - lb-docker-network
+  
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "1337:80"
+  #   # volumes:
+  #     # - static_volumes:/home/app/web/staticfiles
+  #   depends_on:
+  #     - backend
+
+  api-nodejs:
+    build: ./back-nodejs
+    container_name: nodejs-api
+    command: npm run start
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - HOST=http://rwd.com
+      - MONGO_URL=mongodb://db_mongo:27017/api
+    depends_on:
+      - db_mongo
+
+  db_mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    volumes:
+      - ./mongodb1:/data/db
+      # - mongodb_api:/data/db
+
+
+
+
+  # auth:
+  #   build: ./auth
+  #   container_name: auth-service
+  #   command: npm run start
+  #   restart: unless-stopped
+  #   ports:
+  #     - "4001:4001"
+  #   environment:
+  #     - PORT=4001
+  #     - HOST=http://rwd.com
+  #     - MONGO_URL=mongodb://auth_db_mongo:27017/auth
+  #   depends_on:
+  #     - auth_db_mongo
+
+  # auth_db_mongo:
+  #   image: mongo:latest
+  #   container_name: auth_db_mongo
+  #   volumes:
+  #     - ./mongo_auth:/data/db
+
+
+
 
 networks:
   lb-docker-network:
     driver: bridge
 
 # volumes:
-  # datadb1:
+  # mongodb_api:
