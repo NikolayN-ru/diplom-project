@@ -1,5 +1,8 @@
+from django.core.files.storage import default_storage, FileSystemStorage
 from django.db import models
 from django.urls import reverse
+
+from mainApp import settings
 
 
 class News(models.Model):
@@ -11,6 +14,10 @@ class News(models.Model):
     is_published = models.BooleanField(default=True, verbose_name='публиковать_?')
     caterogy = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, related_name='get_news')
     views = models.IntegerField(default=0)
+    photo = models.FileField(
+        # storage=FileSystemStorage(location=settings.MEDIA_ROOT),
+        upload_to='', blank=True, null=True
+    )
 
     def my_func(self):
         return 'Hello_my-func'

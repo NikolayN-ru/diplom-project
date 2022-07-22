@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # delete no-use photo
+    'django_cleanup',
+
     'debug_toolbar',
     'rest_framework',
     # my - appses
@@ -174,3 +177,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
 
 INTERNAL_IPS = ["127.0.0.1", ]
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE'
+AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+AWS_STORAGE_BUCKET_NAME = 'TEST2BA'
+AWS_S3_ENDPOINT_URL = 'http://localhost:9444/s3/'

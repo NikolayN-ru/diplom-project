@@ -2,6 +2,13 @@ version: "3.8"
 
 services:
 
+  # myAmazon:
+  #   image: scireum/s3-ninja:4
+  #   ports:
+  #     - "9444:80"
+  #   volumes:
+  #     - ./s3_1:/var/s3/data
+
   backend:
     build: 
       context: ./backend
@@ -64,7 +71,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - backend
-      - frondend
+      - frontend
       - front-react
       - api-nodejs
     # networks:
