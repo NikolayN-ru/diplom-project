@@ -1,12 +1,12 @@
-FROM node:14-alpine
+FROM node:16.16
 
 WORKDIR /app
 
-ADD package*.json *
+ADD package*.json .
 
 # RUN apt update && apt install -y vim
 # RUN apt-get update
 
-RUN npm i
+RUN npm install
 
 COPY . .

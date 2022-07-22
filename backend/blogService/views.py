@@ -137,7 +137,7 @@ def user_logout(request):
 class NewsViewSet(generics.ListAPIView):
     queryset = News.objects.all()
     serializer_class = NewsSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class NewsList(APIView):

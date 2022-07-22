@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Jul 18 22:20:57 2022
+# Make data base, printed on Fri Jul 22 10:40:41 2022
 
 # Variables
 
@@ -38,13 +38,13 @@ VSCODE_CWD = /
 # environment
 PATH = /Users/nn/opt/anaconda3/bin:/Users/nn/opt/anaconda3/condabin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public
 # environment
-LaunchInstanceID = 1995C41E-E28E-47E6-BFB7-69AA90D1719E
+LaunchInstanceID = 1DFB3590-097F-4872-B05C-870A70A3EEFD
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.b1xjk0IXBL/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Fujq3pFCvi/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -86,7 +86,7 @@ MAKE_VERSION := 3.81
 # environment
 USER = nn
 # makefile
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := build
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -142,7 +142,7 @@ MAKELEVEL := 0
 # environment
 CONDA_PREFIX = /Users/nn/opt/anaconda3
 # environment
-VSCODE_PID = 447
+VSCODE_PID = 454
 # environment
 _CE_CONDA = 
 # environment
@@ -156,9 +156,9 @@ LANG = C
 
 # Directories
 
-# . (device 16777223, inode 12885554804): 14 files, no impossibilities.
+# . (device 16777223, inode 12885554804): 27 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 27 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -170,7 +170,7 @@ stop:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 4):
+#  commands to execute (from `Makefile', line 9):
 	docker-compose down
 	
 
@@ -189,21 +189,46 @@ all:
 #  Modification time never checked.
 #  File has not been updated.
 
+prod:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 13):
+	docker-compose -f docker-compose.prod.yml up
+	
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-11 13:46:02
+#  Last modified 2022-07-21 17:37:43
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-dev:
+start:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 7):
+	docker-compose up -d
+	
+
+build:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 2):
-	docker-compose up -d
+	docker-compose build
+	
+
+dev:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 4):
+	docker-compose up --build
+	# --build сбилдит образ если он был обновлен
 	
 
 # Not a target:
@@ -212,8 +237,24 @@ dev:
 #  Modification time never checked.
 #  File has not been updated.
 
+prod-build:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 11):
+	docker-compose -f docker-compose.prod.yml up -d --build
+	
+
+node:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 15):
+	docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build
+	
+
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/18=0%
+# Load=11/1024=1%, Rehash=0, Collisions=0/23=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -225,7 +266,7 @@ dev:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul 18 22:20:57 2022
+# Finished Make data base on Fri Jul 22 10:40:41 2022
 
  
 make: *** No rule to make target `all'.  Stop.

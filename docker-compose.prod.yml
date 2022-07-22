@@ -9,3 +9,9 @@ services:
   db:
     env_file:
       - ./.env.prod.db
+
+  front-react:
+    command: serve -s build -l 3000
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

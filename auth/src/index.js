@@ -1,5 +1,5 @@
 const express = require('express');
-const { connectDb } = require('./helpers/db');
+// const { connectDb } = require('./helpers/db');
 const { port, host, db } = require('./configuration');
 
 const app = express()
@@ -16,7 +16,22 @@ app.get('/auth', (req, res) => {
     res.send('Our api auth server - working correctly!')
 })
 
-connectDb()
-    .on('error', console.log)
-    .on('disconnected', connectDb)
-    .once('open', startServer);
+app.get('/apiuser', (req, res) => {
+    res.json({
+        id: 1234,
+        email: "foO@gmail.com"
+    })
+})
+
+app.get('/testuser', (req, res) => {
+    res.json({
+        testing: true
+    })
+})
+
+// connectDb()
+//     .on('error', console.log)
+//     .on('disconnected', connectDb)
+//     .once('open', startServer);
+
+startServer()

@@ -20,8 +20,8 @@ services:
     #   - PORT=8000
     depends_on:
       - db
-    networks:
-      - lb-docker-network
+    # networks:
+      # - docker-network
 
   frontend:
     build: ./frontend
@@ -32,12 +32,12 @@ services:
     volumes:
       - './frontend:/app'
     ports:
-      - "3000:3000" # хост\контейнер
+      - "3070:3070" # хост\контейнер
     environment:
       - PORT=3000
       - PATH_CATEGORY=http://backend:8000/api/category
-    networks:
-      - lb-docker-network
+    # networks:
+      # - docker-network
   
   db:
     hostname: db
@@ -52,17 +52,23 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-    networks:
-      - lb-docker-network
+    # networks:
+      # - docker-network
   
-  # nginx:
-  #   build: ./nginx
-  #   ports:
-  #     - "1337:80"
-  #   # volumes:
-  #     # - static_volumes:/home/app/web/staticfiles
-  #   depends_on:
-  #     - backend
+  nginx:
+    build: ./nginx
+    container_name: NGINX_MAIN
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - backend
+      - frondend
+      - front-react
+      - api-nodejs
+    # networks:
+      # - docker-network
 
   api-nodejs:
     build: ./back-nodejs
@@ -75,18 +81,39 @@ services:
       - PORT=4000
       - HOST=http://rwd.com
       - MONGO_URL=mongodb://db_mongo:27017/api
-    depends_on:
-      - db_mongo
+      - API_URL=http://auth:4001
+    # volumes:
+      # - ./back-nodejs./src:/app/src
+    # depends_on:
+      # - db_mongo
+    # networks:
+      # - docker-network
 
-  db_mongo:
-    image: mongo:latest
-    container_name: mongo_db
+  # db_mongo:
+  #   image: mongo:latest
+  #   container_name: mongo_db
+  #   volumes:
+  #     - ./mongodb1:/data/db
+  #     # - mongodb_api:/data/db
+  #   networks:
+  #     - docker-network
+
+  front-react:
+    build: ./front-react
+    container_name: front-react
+    command: serve -s build -l 3000
+    # command: npm run start
+    ports:
+      - "3000:3000" # для достижения сервиса снаружи
+    environment:
+      - API_URL_DJANGO=http://backend:8000
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
     volumes:
-      - ./mongodb1:/data/db
-      # - mongodb_api:/data/db
-
-
-
+      - ./front-react/src:/app/src
+    # networks:
+      # - docker-network
 
   # auth:
   #   build: ./auth
@@ -107,13 +134,15 @@ services:
   #   container_name: auth_db_mongo
   #   volumes:
   #     - ./mongo_auth:/data/db
+  #   networks:
+  #     - docker-network
 
 
 
 
-networks:
-  lb-docker-network:
-    driver: bridge
+# networks:
+#   docker-network:
+#     driver: bridge
 
 # volumes:
   # mongodb_api:

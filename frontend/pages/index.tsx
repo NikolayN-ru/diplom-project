@@ -2,8 +2,19 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import axios from 'axios';
 
 const Home: NextPage = () => {
+
+  // axios.get('http://backend:8000' + '/blog/api').then(response => {
+  //   // console.log('django_URL', djangoUrl)
+  //   console.log('response-data', response.data)
+  // })
+
+  // axios.get('http://auth:4001/apiuser').then(response => {
+  //   console.log('AUTH', response.data)
+  // })
+  
   return (
     <div className={styles.container}>
       <Head>
