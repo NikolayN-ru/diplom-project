@@ -11,6 +11,10 @@ class VideoAdmin(admin.ModelAdmin):
     list_filter = ('isPublished',)
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    search_fields = ('title',)
+
+
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'created')
     list_display_links = ('id', 'created')
@@ -19,4 +23,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Video, VideoAdmin)
 admin.site.register(Comment, CommentAdmin)
-admin.site.register(CategoryVideo)
+admin.site.register(CategoryVideo, CategoryAdmin)

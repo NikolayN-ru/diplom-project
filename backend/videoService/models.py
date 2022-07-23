@@ -1,5 +1,9 @@
 from datetime import datetime
+
+from django.core.files.storage import FileSystemStorage
 from django.db import models
+
+from mainApp import settings
 
 
 # USER-MODELS SUBSCRIBE - расширение модели пользователя - PROCESSING...
@@ -15,11 +19,14 @@ from django.db import models
 class Video(models.Model):
     title = models.CharField(max_length=255, verbose_name='заголовок')
     description = models.TextField(blank=True, verbose_name='описание')
-    file = models.FileField(upload_to='video/%Y/%m/%d/', verbose_name='видео')
+    file = models.FileField(
+        storage=FileSystemStorage(location=settings.MEDIA_ROOT),
+        upload_to='video/%Y/%m/%d/', verbose_name='видео')
     comments = models.ForeignKey('Comment', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='коментарии')
     upload_to = models.DateTimeField(auto_now_add=True)
     isPublished = models.BooleanField(default=False, verbose_name='опубликовано')
-    category = models.ForeignKey('CategoryVideo', on_delete=models.PROTECT, null=True, blank=True, verbose_name='категория')
+    category = models.ForeignKey('CategoryVideo', on_delete=models.PROTECT, null=True, blank=True,
+                                 verbose_name='категория', related_name='get_items')
     # like = models.ManyToManyField(UserTesting, on_delete=models.SET_NULL, blank=True)
 
     def __str__(self):
