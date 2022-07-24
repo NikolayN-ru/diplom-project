@@ -1,4 +1,8 @@
 using: docker, docker-compose,
+----------------
+Docker Engine
+v20.10.17
+----------------
 
 running project:
 #

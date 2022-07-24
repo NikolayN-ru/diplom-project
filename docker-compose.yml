@@ -75,6 +75,7 @@ services:
     ports:
       - "80:80"
     volumes:
+      # - static_data:/var/www/html/static
       - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - backend
