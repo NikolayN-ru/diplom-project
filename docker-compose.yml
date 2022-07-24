@@ -8,6 +8,13 @@ services:
   #     - "9444:80"
   #   volumes:
   #     - ./s3_1:/var/s3/data
+  #   networks:
+      # - docker-network
+
+  redis:
+    image: redis:2.8
+    ports:
+      - "6379:6379"
 
   backend:
     build: 
@@ -121,30 +128,6 @@ services:
       - ./front-react/src:/app/src
     # networks:
       # - docker-network
-
-  # auth:
-  #   build: ./auth
-  #   container_name: auth-service
-  #   command: npm run start
-  #   restart: unless-stopped
-  #   ports:
-  #     - "4001:4001"
-  #   environment:
-  #     - PORT=4001
-  #     - HOST=http://rwd.com
-  #     - MONGO_URL=mongodb://auth_db_mongo:27017/auth
-  #   depends_on:
-  #     - auth_db_mongo
-
-  # auth_db_mongo:
-  #   image: mongo:latest
-  #   container_name: auth_db_mongo
-  #   volumes:
-  #     - ./mongo_auth:/data/db
-  #   networks:
-  #     - docker-network
-
-
 
 
 # networks:

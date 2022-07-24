@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/', include('videoService.urls')),
     path('blog/', include('blogService.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
+    path('', include('apiService.urls')),
 ]
 
 if settings.DEBUG:

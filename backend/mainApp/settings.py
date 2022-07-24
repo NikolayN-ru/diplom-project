@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'channels',
+
     # 'rest_framework_swagger',
     'drf_yasg',
 
@@ -177,3 +179,14 @@ AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE'
 AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
 AWS_STORAGE_BUCKET_NAME = 'TEST2BA'
 AWS_S3_ENDPOINT_URL = 'http://localhost:9444/s3/'
+
+ASGI_APPLICATION = "mainApp.routing.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('redis', 6379)],
+        },
+    },
+}
