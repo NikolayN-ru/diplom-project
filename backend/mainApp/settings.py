@@ -190,3 +190,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# REDIS_HOST = 'redis'
+# REDIS_PORT = '6379'
+# CELERY_BROKER_URL=
