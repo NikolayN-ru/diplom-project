@@ -1,3 +1,8 @@
+Status of last Deployment:<br>
+<img src="https://github.com/NikolayN-ru/diplom-project/workflows/CI-githubActioons/badge.svg?branch=master"><br>
+
+2022
+
 using: docker, docker-compose,
 ----------------
 Docker Engine
