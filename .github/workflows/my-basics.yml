@@ -34,9 +34,9 @@ jobs:
     
     steps:
       - name: Print2
-        run: echo 'Hello world from deploy'
+      - run: echo 'Hello world from deploy'
         
       - name: Print version project
-        run: |
+      - run: |
           echo "Deploy package is ${{ env.packageName }} - ${{ env.varsionName }}"
   
