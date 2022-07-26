@@ -1,6 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI-githubActioons
+env:
+  aplicationName: "My_django"
+  packageName: "Solanka"
+  varsionName: "poltoraMinora - ${{ github.sha }}"
 
 on:
   push:
@@ -16,7 +20,13 @@ jobs:
     
     steps:
       - name: Print in testing
-        run: echo 'Helloy-world!!)'
+        run: echo 'Helloy-world!!) - '
+        
+      - name: Print for execute commands
+      - run: |
+          echo "Hello message one"
+          echo "Hello message two"
+          echo "Application name: ${{ env.aplicationName }}"
           
   my_deploy:
     runs-on: ubuntu-latest
@@ -25,4 +35,8 @@ jobs:
     steps:
       - name: Print2
         run: echo 'Hello world from deploy'
+        
+      - name: Print version project
+        run: |
+          echo "Deploy package is ${{ env.packageName }} - ${{ env.varsionName }}"
   
