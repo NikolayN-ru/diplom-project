@@ -4,7 +4,7 @@ name: CI-githubActioons
 env:
   aplicationName: "My_django"
   packageName: "Solanka"
-  varsionName: "poltoraMinora - ${{ github.sha }}"
+  varsionName: "poltoraMinora"
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
     
     steps:
       - name: Print in testing
-      - run: echo 'Helloy-world!!) - '
+        run: echo "Helloy-world!! "
         
       - name: Print for execute commands
-      - run: |
+        run: |
           echo "Hello message one"
           echo "Hello message two"
           echo "Application name: ${{ env.aplicationName }}"
@@ -33,10 +33,9 @@ jobs:
     needs: [my-testing]
     
     steps:
-      - name: Print2
-      - run: echo 'Hello world from deploy'
+      - name: Print2 command
+        run: echo 'Hello world from deploy'
         
       - name: Print version project
-      - run: |
-          echo "Deploy package is ${{ env.packageName }} - ${{ env.varsionName }}"
+        run: echo "Deploy package is ${{ env.packageName }}"
   
