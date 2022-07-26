@@ -19,22 +19,22 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: git clone my repo
+        uses: actions/checkout@v1
+    
       - name: Print in testing
-        run: echo "Helloy-world!! "
+        run: ls -la
         
-      - name: Print for execute commands
-        run: |
-          echo "Hello message one"
-          echo "Hello message two"
-          echo "Application name: ${{ env.aplicationName }}"
+      - name: Print avalible AWS
+        run: aws --version
           
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my-testing]
     
     steps:
-      - name: Print2 command
-        run: echo 'Hello world from deploy'
+      - name: command avalible Gzip
+        run: gzip --version
         
       - name: Print version project
         run: echo "Deploy package is ${{ env.packageName }}"
