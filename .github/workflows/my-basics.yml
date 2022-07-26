@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-githubActioons
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print
+        run: echo 'Helloy-world!!)'
+          
+  my_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print2
+        run: echo 'Hello world from deploy'
+  
