@@ -11,15 +11,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  my-testing:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Print
+      - name: Print in testing
         run: echo 'Helloy-world!!)'
           
   my_deploy:
     runs-on: ubuntu-latest
+    needs: [my-testing]
     
     steps:
       - name: Print2
