@@ -20,7 +20,7 @@ jobs:
     
     steps:
       - name: Print in testing
-        run: echo 'Helloy-world!!) - '
+      - run: echo 'Helloy-world!!) - '
         
       - name: Print for execute commands
       - run: |
