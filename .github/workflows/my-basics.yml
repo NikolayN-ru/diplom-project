@@ -21,9 +21,19 @@ jobs:
     steps:
       - name: git clone my repo
         uses: actions/checkout@v1
+        env:
+          var1: "this is varioale"
+          var2: "This is variable two"
     
       - name: Print in testing
         run: ls -la
+      
+      - name: Print env variables
+        env:
+          LOCAL_VAR: "Super-Local"
+        run: |
+          echo "${{ env.var1 }} - ${{ env.var2 }}"
+          echo "var3 -- $LOCAL_VAR"
         
       - name: Print avalible AWS
         run: aws --version
