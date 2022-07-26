@@ -1,0 +1,19 @@
+---
+- name: Install Error paly-book
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Task Number 1
+      yum: name=treeee state=latest
+      ignore_errors: yes
+
+    - name: Task Number 2
+      shell: ls -la /etc/
+      register: results
+
+    # - debug:
+        # var: results
+
+    - name: Task Number 3
+      shell: echo Privet Mir!!

@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Sat Jul 23 13:14:40 2022
+# Make data base, printed on Tue Jul 26 17:49:58 2022
 
 # Variables
 
@@ -38,11 +38,13 @@ VSCODE_CWD = /
 # environment
 PATH = /Users/nn/opt/anaconda3/bin:/Users/nn/opt/anaconda3/condabin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public
 # environment
+LaunchInstanceID = 46E0FFA2-6728-4400-999F-69846BA26DA6
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.AtyatEiU1O/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pivndsuFRq/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -58,11 +60,11 @@ HOME = /Users/nn
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/nn/Library/Application Support/Code/CachedData/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+VSCODE_CODE_CACHE_PATH = /Users/nn/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = nn
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 CONDA_PROMPT_MODIFIER = (base) 
 # environment
@@ -98,7 +100,7 @@ TMPDIR = /var/folders/4k/fbfvz3pn589c39w1x3cfx_jr0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/nn/Library/Application Support/Code/1.69.0-main.sock
+VSCODE_IPC_HOOK = /Users/nn/Library/Application Support/Code/1.69.2-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -108,7 +110,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.466037.466043
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.12887088310.12887088316
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -125,6 +127,8 @@ MAKEFILES :=
 LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /Users/nn/opt/anaconda3/bin/python
+# environment
+SECURITYSESSIONID = 186a3
 # automatic
 ^F = $(notdir $^)
 # default
@@ -138,13 +142,13 @@ MAKELEVEL := 0
 # environment
 CONDA_PREFIX = /Users/nn/opt/anaconda3
 # environment
-VSCODE_PID = 1965
+VSCODE_PID = 467
 # environment
 _CE_CONDA = 
 # environment
 LANG = C
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=2/90=2%
+# Load=68/1024=7%, Rehash=0, Collisions=2/92=2%
 
 # Pattern-specific Variable Values
 
@@ -152,9 +156,9 @@ LANG = C
 
 # Directories
 
-# . (device 16777223, inode 12885554804): 28 files, no impossibilities.
+# . (device 16777223, inode 12885554804): 29 files, no impossibilities.
 
-# 28 files, no impossibilities in 1 directories.
+# 29 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -262,7 +266,7 @@ node:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Jul 23 13:14:40 2022
+# Finished Make data base on Tue Jul 26 17:49:58 2022
 
  
 make: *** No rule to make target `all'.  Stop.

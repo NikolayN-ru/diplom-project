@@ -1,0 +1,13 @@
+---
+# tasks file for deploy_apache_web
+    - name: Generate index.html file
+      template: src=index.j2 dest={{destin_folder}}/index.html mode=0555
+      notify:
+        - Restart Apache RedHat
+        - Restart Apache Debian
+
+    - name: Generate index.html file
+      template: src=index.j2 dest={{destin_folder}}/index.html mode=0555
+      notify:
+        - Restart Apache RedHat
+        - Restart Apache Debian

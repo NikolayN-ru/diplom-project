@@ -1,0 +1,43 @@
+---
+- name: Loops Playbook
+  hosts: staging_servers
+  become: yes
+
+  vars:
+    myUrl: myUrl=https://github.com/NikolayN-ru/diplom-project
+
+  tasks:
+    # - name: Ping my servers
+      # ping:
+
+    - name: Upgrade all apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+        cache_valid_time: 3600
+        force_apt_get: true
+
+    - name: Install Package
+      apt:
+        name:
+          - "{{ item }}"
+        state: latest
+      with_items:
+        - vim
+        - git
+        - tree
+        - make
+        - python
+        - docker
+        - docker.io
+        - docker-compose
+
+    - name: Copy Repository
+      git:
+        repo: https://github.com/NikolayN-ru/diplom-project
+        dest: /app/
+        clone: yes
+        update: yes
+      # get_url: url={{ myUrl }} dest=/root
+      # wget
+      # copy: src={{ myUrl }} dest={{ /root }} mode=0555
