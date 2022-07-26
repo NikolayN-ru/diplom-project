@@ -1,0 +1,28 @@
+---
+- name: Install default Apache Web server
+  hosts: all
+  become: yes
+
+  vars:
+    source_folder: ./Mywebsite
+    destin_folder: /var/www/html
+
+  tasks:
+    - name: Generate index.html file
+      template: src={{ source_folder}}/index.j2 dest={{destin_folder}}/index.html mode=0555
+      notify:
+        - Restart Apache RedHat
+        - Restart Apache Debian
+
+    # - name: Start vebwervers start RedHat
+    #   service: name=httpd state=started enabled=yes
+
+    # - name: Install Apache web server for Debian
+    #   apt: name=apache2 state=latest
+
+  handlers:
+    - name: Restart Apache RedHat
+      service: name=httpd state=restarted
+
+    - name: Restart Apache Debian
+      service: name=apache2 state=restarted

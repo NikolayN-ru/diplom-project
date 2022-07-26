@@ -1,0 +1,10 @@
+---
+- name: Install default Apache Web server
+  hosts: all
+  become: yes
+
+  roles:
+    # deploy_apache_web
+    - { role: deploy_apache_web, when: ansible_system == 'Linux' }
+    # - deploy_data_base
+    # - configurated_xxx

@@ -1,0 +1,31 @@
+---
+- name: My super playBook variables
+  hosts: all
+  become: yes
+
+  vars:
+    massage1: World!
+    massage2: HeLlo
+    secret: 9823749328749283kashkasdhj
+
+  tasks:
+    - name: Print Secret variables
+      debug:
+        var: secret
+
+    - debug:
+        msg: "Secretnoe slovo: {{ secret }}"
+
+    - debug:
+        msg: "Vladeles etogo servera --> {{ userName }} <--"
+
+    - set_fact: full_message="{{ massage1 }} {{ massage2 }} from {{ userName }}"
+
+    - debug:
+        var: full_message
+
+    - shell: uptime
+      register: results
+
+    - debug:
+        var: results.stdout
