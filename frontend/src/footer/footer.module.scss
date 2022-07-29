@@ -1,5 +1,54 @@
 .footer {
-    p {
-        color: red;
+    padding-top: 32px;
+    padding-left: 60px;
+    background-color: #181A19;
+    border: 1px solid #7c7c7c;
+
+
+    .top {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .menuLeft {
+            max-width: 970px;
+            display: flex;
+            gap: 20px;
+            padding-right: 20px;
+            border-right: 1px solid #323232;
+        }
+
+        .menuRigth {
+            max-width: 800px;
+            color: #7c7c7c;
+
+            p {
+                color: white;
+                margin-bottom: 20px;
+            }
+        }
+
+    }
+
+    .down {
+        padding: 30px 60px;
+        color: #A8A8A8;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 15px;
+
+        .messagers {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            // max-width: 130px;
+            max-height: 40px;
+            gap: 0px;
+        }
     }
 }

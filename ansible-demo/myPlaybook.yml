@@ -1,6 +1,6 @@
 ---
 - name: Loops Playbook
-  hosts: staging_servers
+  hosts: prod_servers
   become: yes
 
   vars:
@@ -27,7 +27,7 @@
         - git
         - tree
         - make
-        - python
+        # - python
         - docker
         - docker.io
         - docker-compose
