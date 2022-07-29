@@ -4,42 +4,42 @@
   become: yes
 
   vars:
-    # source_file: ./Mywebsite/index.html
-    # destin_file: /var/www/html
+    source_file: ./Mywebsite/index.html
+    destin_file: /var/www/html
 
   tasks:
-    # - name: check name Linux Version
-    #   debug: var=ansible_os_family
+    - name: check name Linux Version
+      debug: var=ansible_os_family
 
-    # - block: # ======= Block for RedHat
-    #     - name: Install Apache web server for RedHat
-    #       yum: name=httpd state=latest
+    - block: # ======= Block for RedHat
+        - name: Install Apache web server for RedHat
+          yum: name=httpd state=latest
 
-    #     - name: Copy MyHomePage to Servers
-    #       copy: src={{ source_file }} dest={{ destin_file }} mode=0555
-    #       notify: Restart Apache RedHat
+        - name: Copy MyHomePage to Servers
+          copy: src={{ source_file }} dest={{ destin_file }} mode=0555
+          notify: Restart Apache RedHat
 
-    #     - name: Start vebwervers start RedHat
-    #       service: name=httpd state=started enabled=yes
+        - name: Start vebwervers start RedHat
+          service: name=httpd state=started enabled=yes
 
-    #   when: ansible_os_family == "RedHat"
+      when: ansible_os_family == "RedHat"
 
-    # - block: # ===== Block for Ubuntu
-    #     - name: Install Apache web server for Debian
-    #       apt: name=apache2 state=latest
+    - block: # ===== Block for Ubuntu
+        - name: Install Apache web server for Debian
+          apt: name=apache2 state=latest
 
-    #     - name: Copy MyHomePage to Servers
-    #       copy: src={{ source_file }} dest={{ destin_file }} mode=0555
-    #       notify: Restart Apache Debian
+        - name: Copy MyHomePage to Servers
+          copy: src={{ source_file }} dest={{ destin_file }} mode=0555
+          notify: Restart Apache Debian
 
-    #     - name: Start wevService for Debian
-    #       service: name=apache2 state=started enabled=yes
+        - name: Start wevService for Debian
+          service: name=apache2 state=started enabled=yes
 
-    #   when: ansible_os_family == "Debian"
+      when: ansible_os_family == "Debian"
 
-  # handlers:
-    # - name: Restart Apache RedHat
-    #   service: name=httpd state=restarted
+  handlers:
+    - name: Restart Apache RedHat
+      service: name=httpd state=restarted
 
-    # - name: Restart Apache Debian
-    #   service: name=apache2 state=restarted
+    - name: Restart Apache Debian
+      service: name=apache2 state=restarted

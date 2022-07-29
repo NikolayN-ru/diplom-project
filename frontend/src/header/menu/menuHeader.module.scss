@@ -1,0 +1,17 @@
+.menuItems {
+    display: flex;
+    max-width: 871px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+
+    li {
+        color: white;
+        cursor: pointer;
+    }
+
+    li:hover {
+        opacity: 0.7;
+    }
+}

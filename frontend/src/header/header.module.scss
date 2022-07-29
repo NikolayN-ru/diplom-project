@@ -1,5 +1,46 @@
 .header {
-    p {
-        color: blue;
+
+    padding: 28px 61px 19px;
+    background-color: #181A19;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    .logo {
+        cursor: pointer;
+    }
+    .logo:hover {
+        opacity: 0.8;
+    }
+
+
+
+    .input {
+        margin: auto 0;
+        border: 2px solid #252A2C;
+        border-radius: 93px;
+        // height: 64px;
+        max-width: 716px;
+        flex-grow: 1;
+        cursor: pointer;
+        padding: 22px 30px;
+        text-align: center;
+        vertical-align: middle;
+        display: flex;
+
+        input {
+            flex-grow: 1;
+            margin-right: 10px;
+            border: none;
+            background-color: #1B1E1E;
+            color: #6D7A7C;
+            top: 10px;
+        }
+    }
+
+    .input:hover {
+        border: 2px solid #608391;
     }
 }
