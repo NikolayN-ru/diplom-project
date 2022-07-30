@@ -7,7 +7,7 @@ const Logo = () => {
 
         // <div className={styles.logo}>
         <div>
-            <a href="#">
+            <a href="/">
                 <Image src="/logo.png" alt="Ve" width="157" height="94" />
             </a>
         </div>

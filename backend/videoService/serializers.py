@@ -10,7 +10,7 @@ class VideoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Video
-        fields = ('title', 'description', 'file', 'comments', 'upload_to', 'category')
+        fields = ('pk', 'title', 'description', 'file', 'comments', 'upload_to', 'category', 'image')
 
 
 class VideoNewSerializer(generics.ListAPIView):

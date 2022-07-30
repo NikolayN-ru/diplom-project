@@ -100,12 +100,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mainApp.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -118,17 +118,17 @@ WSGI_APPLICATION = 'mainApp.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
-        'USER': os.environ.get("SQL_USER"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
-
-    }
-}
+# DATABASES = {
+#     'default': {
+#         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+#         "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+#         'USER': os.environ.get("SQL_USER"),
+#         "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+#         "HOST": os.environ.get("SQL_HOST", "localhost"),
+#         "PORT": os.environ.get("SQL_PORT", "5432"),
+#
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -174,11 +174,11 @@ MEDIA_URL = '/media/'
 
 INTERNAL_IPS = ["127.0.0.1", ]
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE'
-AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
-AWS_STORAGE_BUCKET_NAME = 'TEST2BA'
-AWS_S3_ENDPOINT_URL = 'http://localhost:9444/ui/'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE'
+# AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+# AWS_STORAGE_BUCKET_NAME = 'TEST2BA'
+# AWS_S3_ENDPOINT_URL = 'http://localhost:9444/ui/'
 
 ASGI_APPLICATION = "mainApp.routing.application"
 

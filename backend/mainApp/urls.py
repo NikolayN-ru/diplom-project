@@ -26,7 +26,7 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),  # http://localhost:8000/api-auth/login/
-    path('api/', include('videoService.urls')),
+    path('api1/', include('videoService.urls')),
     path('blog/', include('blogService.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path('', include('apiService.urls')),

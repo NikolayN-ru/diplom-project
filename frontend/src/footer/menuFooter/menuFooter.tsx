@@ -10,7 +10,7 @@ const MenuFooter = () => {
         <ul className={styles.menu}>
             <div className={styles.menuLeft}>
                 <p>Menu</p>
-                {localState.map((item, id) => <li>{item}</li>)}
+                {localState.map((item, id) => <li key={id}>{item}</li>)}
             </div>
         </ul>
     )
