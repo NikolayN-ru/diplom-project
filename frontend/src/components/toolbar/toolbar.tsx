@@ -81,6 +81,20 @@ const ToolbarMain: FC = ({ }): JSX.Element => {
                     </div>
                 </li>
             </ul>
+            <div className={styles.collection}>
+                <p>популярные коллекции</p>
+                <Image src="/popular.png" alt="Ve" width="425" height="545" />
+                <div className={styles.description}>
+                    <p>Лучшие сериалы 2015-2021 годов</p>
+                    <button>Смотреть</button>
+                </div>
+                <div className={styles.sircles}>
+                    <div className={styles.sircle}></div>
+                    <div className={styles.sircle}></div>
+                    <div className={styles.sircle}></div>
+                    <div className={styles.sircle}></div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -28,7 +28,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = bool(int(os.environ.get("DEBUG", default=1)))
 
 # ALLOWED_HOSTS = []
+CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:3070'
+    'vl.com',
+]
 
 # Application definition
 
@@ -39,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'corsheaders',
 
     'channels',
 
@@ -72,6 +79,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

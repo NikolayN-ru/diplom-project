@@ -2,19 +2,19 @@ version: "3.8"
 
 services:
 
-  myAmazon:
-    image: scireum/s3-ninja:4
-    ports:
-      - "9444:80"
-    volumes:
-      - ./s3_1:/var/s3/data
+  # myAmazon:
+  #   image: scireum/s3-ninja:4
+  #   ports:
+  #     - "9444:80"
+  #   volumes:
+  #     - ./s3_1:/var/s3/data
   #   networks:
       # - docker-network
 
-  redis:
-    image: redis:2.8
-    ports:
-      - "6379:6379"
+  # redis:
+  #   image: redis:2.8
+  #   ports:
+  #     - "6379:6379"
 
   backend:
     build: 
@@ -76,27 +76,28 @@ services:
       - "80:80"
     volumes:
       # - static_data:/var/www/html/static
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      # - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - backend
       - frontend
-      - front-react
-      - api-nodejs
+      # - front-react
+      # - api-nodejs
     # networks:
       # - docker-network
 
-  api-nodejs:
-    build: ./back-nodejs
-    container_name: nodejs-api
-    command: npm run start
-    restart: unless-stopped
-    ports:
-      - "4000:4000"
-    environment:
-      - PORT=4000
-      - HOST=http://rwd.com
-      - MONGO_URL=mongodb://db_mongo:27017/api
-      - API_URL=http://auth:4001
+  # api-nodejs:
+  #   build: ./back-nodejs
+  #   container_name: nodejs-api
+  #   command: npm run start
+  #   restart: unless-stopped
+  #   ports:
+  #     - "4000:4000"
+  #   environment:
+  #     - PORT=4000
+  #     - HOST=http://rwd.com
+  #     - MONGO_URL=mongodb://db_mongo:27017/api
+  #     - API_URL=http://auth:4001
     # volumes:
       # - ./back-nodejs./src:/app/src
     # depends_on:
@@ -113,20 +114,20 @@ services:
   #   networks:
   #     - docker-network
 
-  front-react:
-    build: ./front-react
-    container_name: front-react
-    command: serve -s build -l 3000
-    # command: npm run start
-    ports:
-      - "3000:3000" # для достижения сервиса снаружи
-    environment:
-      - API_URL_DJANGO=http://backend:8000
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./front-react/src:/app/src
+  # front-react:
+  #   build: ./front-react
+  #   container_name: front-react
+  #   command: serve -s build -l 3000
+  #   # command: npm run start
+  #   ports:
+  #     - "3000:3000" # для достижения сервиса снаружи
+  #   environment:
+  #     - API_URL_DJANGO=http://backend:8000
+  #   restart: unless-stopped
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ./front-react/src:/app/src
     # networks:
       # - docker-network
 

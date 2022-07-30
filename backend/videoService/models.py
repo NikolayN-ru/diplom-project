@@ -22,11 +22,17 @@ class Video(models.Model):
     file = models.FileField(
         storage=FileSystemStorage(location=settings.MEDIA_ROOT),
         upload_to='video/%Y/%m/%d/', verbose_name='видео')
+    image = models.ImageField(upload_to='image/%Y/%m/%d/', verbose_name='заставка', null=True, blank=True)
+    raiting_kino = models.FloatField(verbose_name='рейтинг кинопоиск', null=True, blank=True)
+    raiting_imdb = models.FloatField(verbose_name='рейтинг IMDb', null=True, blank=True)
+    year_prod = models.FloatField(verbose_name='год производства', null=True, blank=True)
+    coast_min = models.FloatField(verbose_name='кол-во минут', null=True, blank=True)
+    age = models.FloatField(verbose_name='возраст', null=True, blank=True)
     comments = models.ForeignKey('Comment', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='коментарии')
     upload_to = models.DateTimeField(auto_now_add=True)
     isPublished = models.BooleanField(default=False, verbose_name='опубликовано')
     category = models.ForeignKey('CategoryVideo', on_delete=models.PROTECT, null=True, blank=True,
-                                 verbose_name='категория', related_name='get_items')
+                                 verbose_name='жанр', related_name='get_items')
     # like = models.ManyToManyField(UserTesting, on_delete=models.SET_NULL, blank=True)
 
     def __str__(self):
@@ -53,6 +59,8 @@ class Comment(models.Model):
 
 class CategoryVideo(models.Model):
     name = models.TextField(verbose_name='категория')
+    image = models.ImageField(upload_to='category', null=True, blank=True)
+    type = models.CharField(verbose_name='тип банера (1 - 2 - 3)')
 
     def __str__(self):
         return self.name

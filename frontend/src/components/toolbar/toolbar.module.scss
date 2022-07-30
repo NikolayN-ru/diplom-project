@@ -1,0 +1,102 @@
+.toolbar {
+    margin-top: 20px;
+    margin-right: 20px;
+    max-width: 350px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // flex-direction: column;
+
+    ul {
+        margin-bottom: 40px;
+
+        >p {
+            max-width: 427px;
+            background-color: rgba(85, 88, 93, 0.5);
+            color: white;
+            padding: 18px 20px;
+            font-size: 22px;
+            line-height: 26px;
+            text-transform: uppercase;
+            // background: #212121;
+        }
+
+        li {
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid #685757;
+            margin: 10px;
+            padding-bottom: 10px;
+
+            .description {
+                div {
+                    padding: 10px;
+                    display: flex;
+                    gap: 15px;
+
+                    p {
+                        color: #A4A4A4;
+                        font-size: 16px;
+                        line-height: 19px;
+                    }
+                }
+
+                p {
+                    max-width: 290px;
+                    font-size: 20px;
+                    line-height: 23px;
+                    font-style: normal;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .collection {
+        position: relative;
+        margin-bottom: 30px;
+
+        p {
+            padding: 20px;
+            color: white;
+            font-size: 22px;
+            line-height: 26px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            max-width: 180px;
+            position: absolute;
+            top: 160px;
+            left: 40px;
+            color: white;
+
+            button {
+                background-color: #81BECB;
+                padding: 13px 33px;
+                color: white;
+                border: none;
+                border-radius: 57px;
+            }
+        }
+
+        .sircles {
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            gap: 5px;
+            display: flex;
+
+            .sircle {
+                width: 9px;
+                height: 9px;
+                border: 1px solid #FFFFFF;
+                border-radius: 50%;
+
+            }
+
+            .sircle:nth-child(2) {
+                background-color: white;
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ const MenuHeader: FC = (): JSX.Element => {
       {/* {localState.map((item, id) => <menuHeaderItem/>)} */}
       <li>Главная</li>
       <li>Подборки</li>
-      <li>По жанру</li>
+      <li><a href="/category">По жанру</a></li>
       <li>Фильмы</li>
       <li>Сериалы</li>
       <li>Мультфильмы</li>

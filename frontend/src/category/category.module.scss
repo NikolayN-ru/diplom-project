@@ -1,0 +1,34 @@
+.category {
+    max-width: 950px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    grid-auto-flow: dense;
+
+    // .item {
+    //     height: 355px;
+    // }
+
+    .item1 {
+        height: 329px;
+        background-color: rgb(185, 148, 115);
+        grid-column: span 6;
+    }
+
+    .item2 {
+        height: 246px;
+        background-color: rgb(157, 186, 137);
+        grid-column: span 3;
+
+    }
+
+    .item3 {
+        height: 155px;
+        background-color: rgb(114, 124, 187);
+        grid-column: span 2;
+
+    }
+}

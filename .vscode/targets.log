@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri Jul 29 18:11:07 2022
+# Make data base, printed on Sat Jul 30 18:27:11 2022
 
 # Variables
 
@@ -41,11 +41,13 @@ VSCODE_CWD = /
 # environment
 PATH = /Users/nn/opt/anaconda3/bin:/Users/nn/opt/anaconda3/condabin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public
 # environment
+LaunchInstanceID = 91FDC73E-B709-4E37-ACE3-96DD59D30C22
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pivndsuFRq/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.SzZerlOQQd/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -128,6 +130,8 @@ MAKEFILES :=
 LC_ALL = C
 # environment
 CONDA_PYTHON_EXE = /Users/nn/opt/anaconda3/bin/python
+# environment
+SECURITYSESSIONID = 186a3
 # automatic
 ^F = $(notdir $^)
 # default
@@ -141,13 +145,13 @@ MAKELEVEL := 0
 # environment
 CONDA_PREFIX = /Users/nn/opt/anaconda3
 # environment
-VSCODE_PID = 46001
+VSCODE_PID = 509
 # environment
 _CE_CONDA = 
 # environment
 LANG = C
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=2/90=2%
+# Load=68/1024=7%, Rehash=0, Collisions=2/92=2%
 
 # Pattern-specific Variable Values
 
@@ -265,6 +269,6 @@ node:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Jul 29 18:11:07 2022
+# Finished Make data base on Sat Jul 30 18:27:11 2022
 
  
