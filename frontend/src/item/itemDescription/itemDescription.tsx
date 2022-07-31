@@ -1,13 +1,18 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./itemDescription.module.scss";
 import Image from 'next/image'
+import { useRouter } from "next/router";
+import axios from "axios";
 
 
-const itemDescription: FC = (): JSX.Element => {
+const itemDescription: FC = ({ itemState }): JSX.Element => {
+
+
     return (
         <div className={styles.itemDescription}>
             <div className={styles.itemDescriptionLeft}>
-                <Image src="/title.png" alt="" width="428" height="666" />
+                <img src={itemState && itemState.image} alt="" height="666" />
+                {/* <Image src="/title.png" alt="" width="428" height="666" /> */}
                 <div className={styles.raiting}>
                     <div className={styles.raitingOne}>
                         <p>8.9</p>
@@ -27,7 +32,7 @@ const itemDescription: FC = (): JSX.Element => {
                 </div>
             </div>
             <div className={styles.description}>
-                <h1>Гениальное ограбление (2021)</h1>
+                <h1>{itemState && itemState.title} ({itemState && itemState.year_prod})</h1>
                 <p className={styles.slogan}>Way Down</p>
                 <ul className={styles.descriptionMain}>
                     <li>
@@ -57,7 +62,7 @@ const itemDescription: FC = (): JSX.Element => {
                 </ul>
                 <ul className={styles.descriptionMiddle}>
                     <li>
-                        <span>Жанр</span><span>Боевик, Комедия, Драма</span>
+                        <span>Жанр</span><span>{itemState && itemState.category}</span>
                     </li>
                     <li>
                         <span>Страна</span><span>США</span>
@@ -70,10 +75,9 @@ const itemDescription: FC = (): JSX.Element => {
                     </li>
                 </ul>
                 <div className={styles.descriptionEnd}>
-                    <h2>О чем фильм “Гениальное ограбление (2021)”</h2>
-                    <p>Идейные соображения высшего порядка, а также сложившаяся структура организации требуют от нас анализа направлений прогрессивного развития. Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации направлений прогрессивного развития.
-
-                        Постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки систем массового участия.</p>
+                    <h2>О чем фильм “{itemState && itemState.title} ({itemState && itemState.year_prod})”</h2>
+                    <br />
+                    <p>{itemState && itemState.description}</p>
                     <a href="#">ещё</a>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useStore } from "react-redux";
 import CompilationInterface from "./compilation.interface";
 import styles from "./compilation.module.scss";
 import Item from "./item";
@@ -12,19 +13,23 @@ const item = {
     description: "la-la-la"
 }
 
-
 const Compilation: FC<CompilationInterface> = ({ title, items }): JSX.Element => {
+
+    const { catalogFilms } = useStore().getState()
+
+    console.log(catalogFilms, 'store')
+
     return (
         <div className={styles.compilation} >
             <h2>
                 {title}
             </h2>
             <div className={styles.items}>
-                <Item item={item}/>
-                <Item item={item}/>
-                <Item item={item}/>
-                <Item item={item}/>
-                <Item item={item}/>
+                {catalogFilms && catalogFilms.map((item, id) => {
+                    return (
+                        <Item item={item} />
+                    )
+                })}
             </div>
         </div>
     );

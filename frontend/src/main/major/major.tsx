@@ -12,7 +12,7 @@ const Major: FC = (): JSX.Element => {
       <Breadcamps />
       <Banner />
       <Compilation title="Лучшие фильмы подборки" items={items}/>
-      <Compilation title="Новые фильмы подборки" items={items}/>
+      {/* <Compilation title="Новые фильмы подборки" items={items}/> */}
     </div>
   );
 };
