@@ -2,7 +2,7 @@ import { mainMenu } from './mainMenu';
 import { categoryFilms } from './categoryFilms';
 
 import { combineReducers } from "redux";
-import { catalogFilms } from './CatelogFilms';
+import { catalogFilms } from './catelogFilms';
 
 export default () =>
     combineReducers({

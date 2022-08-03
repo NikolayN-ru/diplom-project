@@ -1,8 +1,7 @@
 import { LOAD_FILMS_CATEGORY } from '../actionTypes';
 
 const initialState = [
-    { pk: 1, title: 'boevik' },
-    { pk: 2, title: 'komedia' },
+    { pk: 1, title: 'none' },
 ]
 
 export const categoryFilms = (state = initialState, { type, payload }: any) => {

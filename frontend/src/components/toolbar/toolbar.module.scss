@@ -2,9 +2,7 @@
     margin-top: 20px;
     margin-right: 20px;
     max-width: 350px;
-    // display: flex;
-    // flex-wrap: wrap;
-    // flex-direction: column;
+    margin: 20px;
 
     ul {
         margin-bottom: 40px;
@@ -17,41 +15,13 @@
             font-size: 22px;
             line-height: 26px;
             text-transform: uppercase;
-            // background: #212121;
         }
 
-        li {
-            display: flex;
-            gap: 15px;
-            border-bottom: 1px solid #685757;
-            margin: 10px;
-            padding-bottom: 10px;
 
-            .description {
-                div {
-                    padding: 10px;
-                    display: flex;
-                    gap: 15px;
-
-                    p {
-                        color: #A4A4A4;
-                        font-size: 16px;
-                        line-height: 19px;
-                    }
-                }
-
-                p {
-                    max-width: 290px;
-                    font-size: 20px;
-                    line-height: 23px;
-                    font-style: normal;
-                    color: white;
-                }
-            }
-        }
     }
 
     .collection {
+        cursor: pointer;
         position: relative;
         margin-bottom: 30px;
 
@@ -98,5 +68,9 @@
                 background-color: white;
             }
         }
+    }
+
+    .collection:hover {
+        opacity: 0.7;
     }
 }

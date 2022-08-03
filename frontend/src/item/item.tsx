@@ -6,7 +6,10 @@ import styles from "./item.module.scss";
 import ItemDescription from "./itemDescription";
 
 
-const ItemFilm: FC = (): JSX.Element => {
+// const ItemFilm: FC = ({ menu, firstCategory }: any): JSX.Element => {
+const ItemFilm: FC = ({ }: any): JSX.Element => {
+
+    // console.log(menu, 'menu', firstCategory, 'firstCaregory')
 
     const [state, setState] = useState<any>();
 
@@ -20,12 +23,9 @@ const ItemFilm: FC = (): JSX.Element => {
         })
     }, [item2])
 
-
-    console.log(state)
-
     return (
         <div className={styles.item}>
-            <ItemDescription itemState={state}/>
+            <ItemDescription itemState={state} />
             <ToolbarMain />
         </div>
     );

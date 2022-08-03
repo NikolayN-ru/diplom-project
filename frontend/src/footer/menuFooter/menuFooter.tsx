@@ -1,5 +1,3 @@
-// import Logo from '../components/logo';
-// import { footerProp } from './menuFooter.interface';
 import styles from './menuFooter.module.scss';
 
 const localState = ["Главная", "Подборки", "По жанру", "Фильмы", "Сериалы", "Мультфильмы", "Аниме", "Актеры"]

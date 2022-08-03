@@ -2,7 +2,6 @@
 
 const initialState = [
     { id: 1, title: 'glavnaya' },
-    { id: 2, title: 'podborki' },
 ]
 
 export const mainMenu = (state = initialState, { type, payload }: any) => {

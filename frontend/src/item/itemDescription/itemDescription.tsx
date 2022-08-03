@@ -1,18 +1,18 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./itemDescription.module.scss";
 import Image from 'next/image'
-import { useRouter } from "next/router";
-import axios from "axios";
+import itemDescriptionInterface from "./itemDescription.interface";
+import Head from "next/head";
 
 
-const itemDescription: FC = ({ itemState }): JSX.Element => {
-
-
+const itemDescription: FC<itemDescriptionInterface> = ({ itemState }): JSX.Element => {
     return (
         <div className={styles.itemDescription}>
+            <Head>
+                <title>{itemState && itemState.title}</title>
+            </Head>
             <div className={styles.itemDescriptionLeft}>
                 <img src={itemState && itemState.image} alt="" height="666" />
-                {/* <Image src="/title.png" alt="" width="428" height="666" /> */}
                 <div className={styles.raiting}>
                     <div className={styles.raitingOne}>
                         <p>8.9</p>
@@ -44,7 +44,7 @@ const itemDescription: FC = ({ itemState }): JSX.Element => {
                             Год выпуска
                         </p>
                         <p>
-                            2021
+                            {itemState && itemState.year_prod}
                         </p>
                     </li>
                     <li>
@@ -57,7 +57,7 @@ const itemDescription: FC = ({ itemState }): JSX.Element => {
                         <p>
                             Возраст
                         </p>
-                        <p>16+</p>
+                        <p>16 +</p>
                     </li>
                 </ul>
                 <ul className={styles.descriptionMiddle}>

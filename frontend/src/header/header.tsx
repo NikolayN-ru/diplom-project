@@ -16,11 +16,6 @@ const Header = ({ link }: headerProp) => {
     const dispatch = useDispatch();
 
     const index: any = store.getState()
-    // console.log(index.mainMenu, 'index')
-    
-    // useEffect(() => {
-    //     dispatch(loadCategoryFilm())
-    // }, [])
 
     return (
         <div className={styles.header}>

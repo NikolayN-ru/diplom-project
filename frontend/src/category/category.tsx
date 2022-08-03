@@ -14,17 +14,17 @@ const Category: FC = (): JSX.Element => {
 
     const dispatch = useDispatch();
 
-    dispatch(loadCategoryFilm());
+    dispatch<any>(loadCategoryFilm());
 
     useEffect(() => {
         setState(index.categoryFilms)
     }, [index, ])
     
     useEffect(() => {
-        // axios.get('/api1/category/').then(({data}) => setCategory(data));
-        axios.get('/api1/category/').then((res) => {
-            setState(res.data);
-        })
+        axios.get('/api1/category/').then(({data}) => setState(data));
+        // axios.get('/api1/category/').then((res) => {
+        //     setState(res.data);
+        // })
     }, []);
 
     return (
